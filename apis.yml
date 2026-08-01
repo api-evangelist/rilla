@@ -1,7 +1,25 @@
 aid: rilla
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rilla.png
 name: Rilla
-description: 'Rilla is a company surfaced as a portfolio company of gv and added to the API Evangelist
-  network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment pipeline.'
+description: 'Rilla is an AI conversation-intelligence and coaching platform built for in-person
+  and outside sales teams. Reps record their face-to-face customer conversations, and Rilla
+  transcribes and analyzes them so managers can run virtual "ridealongs" and deliver targeted,
+  data-driven coaching at scale. The platform surfaces talk patterns, objection handling, and
+  outcome analytics across thousands of field conversations to help teams raise close rates,
+  increase ticket size, and speed up rep ramp. Rilla is a GV (Google Ventures) portfolio company
+  in the AI sector. As of this profile Rilla exposes no public developer API, documentation portal,
+  or SDKs; this record captures its public web identity and a domain-security probe.'
 url: https://raw.githubusercontent.com/api-evangelist/rilla/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,10 +29,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Ai
+- Conversation Intelligence
+- Sales
+- Coaching
+- Sales Enablement
+- Speech Analytics
+- Machine Learning
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,5 +46,20 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/rilla-domain-security.yml
 - type: Website
-  url: Rilla.com
+  url: https://www.rilla.com
+- type: Login
+  url: https://app.rillavoice.com/
+- type: PrivacyPolicy
+  url: https://www.rilla.com/privacy-policy
+- type: TermsOfService
+  url: https://www.rilla.com/terms-and-conditions
+- type: ChangeLog
+  url: https://www.rilla.com/changelog
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
