@@ -18,8 +18,12 @@ description: 'Rilla is an AI conversation-intelligence and coaching platform bui
   data-driven coaching at scale. The platform surfaces talk patterns, objection handling, and
   outcome analytics across thousands of field conversations to help teams raise close rates,
   increase ticket size, and speed up rep ramp. Rilla is a GV (Google Ventures) portfolio company
-  in the AI sector. As of this profile Rilla exposes no public developer API, documentation portal,
-  or SDKs; this record captures its public web identity and a domain-security probe.'
+  in the AI sector. Rilla runs a real production API — api.rillavoice.com/api/v1/, the private backend
+  of its web and mobile apps, which answers every path with 401 Invalid Token — plus an AWS API Gateway
+  webhook receiver its partner SPOTIO documents, but it publishes no developer portal, reference, SDK,
+  or machine-readable specification of any kind, and its CRM integrations are delivered by consuming the
+  Merge unified API rather than by exposing a contract. This record captures its public web identity,
+  the RFC 9116 security.txt it serves from app.rilla.com, and live domain-security and well-known probes.'
 url: https://raw.githubusercontent.com/api-evangelist/rilla/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -29,7 +33,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-14'
 tags:
 - Company
 - Ai
@@ -46,12 +50,26 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: VulnerabilityDisclosure
+  url: security/rilla-vulnerability-disclosure.yml
 - type: DomainSecurity
   url: security/rilla-domain-security.yml
+- type: Security
+  url: https://app.rilla.com/.well-known/security.txt
+- type: SecurityTxt
+  url: well-known/rilla-security.txt
+- type: WellKnown
+  url: well-known/rilla-well-known.yml
+- type: LLMsTxt
+  url: llms/rilla-llms.txt
 - type: Website
   url: https://www.rilla.com
 - type: Login
-  url: https://app.rillavoice.com/
+  url: https://app.rilla.com/
+- type: Blog
+  url: https://www.rilla.com/learn/rilla-labs
+- type: GitHubOrganization
+  url: https://github.com/rillavoice
 - type: PrivacyPolicy
   url: https://www.rilla.com/privacy-policy
 - type: TermsOfService
@@ -59,7 +77,27 @@ common:
 - type: ChangeLog
   url: https://www.rilla.com/changelog
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-14'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 7
   pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Rilla's production API is the private backend of its own apps — every path under
+    https://api.rillavoice.com/api/v1/ returns HTTP 401 "Invalid Token" and requires an
+    active tenant session — and Rilla publishes no developer portal, reference or spec
+    anywhere on rilla.com to read instead.
+  evidence:
+  - url: https://api.rillavoice.com/api/v1/
+    status: 401
+  - url: https://api.rillavoice.com/api/v1/openapi.json
+    status: 401
+  - url: https://api.apirilla.com/openapi.json
+    status: 403
+  - url: https://www.rilla.com/llms.txt
+    status: 404
+  - url: https://app.rilla.com/.well-known/security.txt
+    status: 200
+  checked: '2026-08-14'
