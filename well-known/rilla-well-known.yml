@@ -1,0 +1,95 @@
+generated: '2026-08-14'
+method: probed
+source: live GET of /.well-known/* on every Rilla host found in apis.yml and in the
+  app.rilla.com JavaScript bundle
+note: >-
+  app.rilla.com serves a real RFC 9116 security.txt (HTTP 200, text/plain, 242 bytes)
+  — the only .well-known document Rilla publishes anywhere. Every other path on that
+  host answers HTTP 200 with the 3,686-byte single-page-app HTML shell, which is NOT a
+  document and is recorded here as a miss. www.rilla.com and the API hosts return real
+  404s. api.apirilla.com is an AWS API Gateway that answers every path with 403
+  "Missing Authentication Token", so nothing there could be read anonymously.
+hosts:
+- host: https://app.rilla.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: rilla-security.txt
+    document: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    document: false
+    note: SPA HTML shell, not an OIDC discovery document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    note: SPA HTML shell
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    note: SPA HTML shell
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    document: false
+    note: SPA HTML shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    document: false
+    note: SPA HTML shell — rejected as an A2A agent card (no AgentCard shape)
+  - path: /.well-known/agent.json
+    status: 200
+    document: false
+    note: SPA HTML shell — rejected as an A2A agent card
+- host: https://www.rilla.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.rillavoice.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+- host: https://api.apirilla.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    note: AWS API Gateway MissingAuthenticationTokenException on every path
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+security_txt:
+  file: rilla-security.txt
+  source: https://app.rilla.com/.well-known/security.txt
+  contact: mailto:support@rilla.com
+  expires: '2025-9-03T23:59:59.000Z'
+  expired: true
+  policy: https://www.rilla.com/inter/terms-and-conditions
+  policy_status: 404
+  rfc9116_deviations:
+  - expires-in-the-past
+  - expires-not-zero-padded-iso8601
+  - policy-url-404
+x-evidence:
+  fetched: '2026-08-14'
+  url: https://app.rilla.com/.well-known/security.txt
+  http_status: 200
+  content_type: text/plain; charset=utf-8

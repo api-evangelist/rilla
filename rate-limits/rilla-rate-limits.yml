@@ -1,0 +1,20 @@
+generated: '2026-08-14'
+method: searched
+source: probes of https://api.rillavoice.com and a search of Rilla's public surface
+limit_count: 0
+limits: []
+headers: []
+note: >-
+  Rilla publishes no developer documentation of any kind, so no rate limit, window,
+  burst allowance or exhaustion status code is documented. The production API host
+  api.rillavoice.com answers every /api/v1/* path with HTTP 401 "Invalid Token" before
+  any rate-limit header is emitted, so no runtime signal (X-RateLimit-*, RateLimit-*,
+  Retry-After) could be observed anonymously either. An honest zero: not measured as
+  absent, measured as unpublished and unobservable without a tenant token.
+evidence:
+- url: https://api.rillavoice.com/api/v1/
+  status: 401
+  note: body "Invalid Token"; no rate-limit headers in the response
+- url: https://api.rillavoice.com/health
+  status: 200
+  note: body "Healthy!"; no rate-limit headers

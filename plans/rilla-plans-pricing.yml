@@ -1,0 +1,22 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.rilla.com/sitemap.xml
+plan_count: 0
+currency: null
+plans: []
+note: >-
+  Rilla publishes no pricing or plans page. The sitemap lists no /pricing URL,
+  https://www.rilla.com/pricing returns HTTP 404, and the site's only commercial call
+  to action is https://www.rilla.com/demo — a "Book a demo" contact-sales form. No
+  seat price, tier, quota, overage or contract term is stated anywhere on Rilla's own
+  surface; third-party listing sites (Capterra, GetApp) carry secondhand figures that
+  are not provider-published and are deliberately not recorded here.
+evidence:
+- url: https://www.rilla.com/pricing
+  status: 404
+- url: https://www.rilla.com/demo
+  status: 200
+  note: contact-sales / book-a-demo form
+- url: https://www.rilla.com/sitemap.xml
+  status: 200
+  note: 26 non-story URLs, none of them pricing

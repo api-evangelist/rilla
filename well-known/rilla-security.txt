@@ -1,0 +1,7 @@
+Contact: mailto:support@rilla.com
+Expires: 2025-9-03T23:59:59.000Z
+Preferred-Languages: en
+Policy: https://www.rilla.com/inter/terms-and-conditions
+
+# Security contact information
+# Please report security vulnerabilities to the contact above

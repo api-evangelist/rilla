@@ -1,0 +1,31 @@
+generated: '2026-08-14'
+method: searched
+source: npm, PyPI, RubyGems, crates.io, Maven Central registry queries plus Rilla's
+  own site
+package_count: 0
+packages: []
+note: >-
+  No first-party Rilla client library exists on any public registry. npm's search API
+  returns one unrelated `rilla` package (github.com/sergeysova/rilla, a file-watch CLI);
+  `@rilla/sdk`, `@rillavoice/sdk` and `rillavoice` are unregistered on npm (404),
+  `rilla`/`rillavoice` are absent from PyPI and RubyGems (404), and Maven Central has no
+  com.rilla group. Rilla publishes no developer documentation or SDK page to derive
+  candidates from. Rilla does ship end-user mobile apps (Google Play
+  `com.rillavoice.recorderapp`), but a recorder app is a product, not a client library,
+  so it is deliberately not catalogued here as a package.
+registries_checked:
+- registry: npm
+  queries: ['rilla', '@rilla/sdk', '@rillavoice/sdk', 'rillavoice']
+  result: none first-party
+- registry: pypi
+  queries: ['rilla', 'rillavoice']
+  result: 404
+- registry: rubygems
+  queries: ['rilla']
+  result: 404
+- registry: maven-central
+  queries: ['com.rilla']
+  result: 404
+- registry: crates.io
+  queries: ['rilla']
+  result: not-first-party
