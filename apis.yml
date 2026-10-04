@@ -53,7 +53,7 @@ tags:
 - Coaching
 - Sales Enablement
 - Speech Analytics
-- Machine-Learning
+- Machine Learning
 tags_raw:
 - Company
 - Ai
@@ -63,6 +63,7 @@ tags_raw:
 - Sales Enablement
 - Speech Analytics
 - Machine Learning
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
